@@ -1,10 +1,26 @@
 .App {
   text-align: center;
+  font-family: "FiraCode-Regular";
+  height: 100vh;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-link {
+  margin-right: 50px;
+}
+
+h1 {
+  margin-bottom: 0px;
+  font-family: "FiraCode-Bold";
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -26,6 +42,18 @@
 
 .App-link {
   color: #61dafb;
+}
+
+a {
+  color: #6dd4b1;
+  transition: all 0.2s linear;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #357099;
+  cursor: pointer;
 }
 
 @keyframes App-logo-spin {

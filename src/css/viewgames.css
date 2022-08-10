@@ -1,0 +1,25 @@
+.viewgames {
+  height: 100vh;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #222935;
+  font-family: "FiraCode-Regular";
+  display:flex;
+  flex-direction: row;
+}
+
+.live {
+    flex: 0.5;
+    text-align: center;
+}
+
+.statsandplay {
+    flex: 0.5;
+    text-align: center;
+}
+
+.lichess {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
