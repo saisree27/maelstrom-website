@@ -12,6 +12,7 @@
 .live {
     flex: 0.5;
     text-align: center;
+    color: white;
 }
 
 .statsandplay {
@@ -20,6 +21,5 @@
 }
 
 .lichess {
-    width: 100%;
-    aspect-ratio: 1 / 1;
+    color: white;
 }
