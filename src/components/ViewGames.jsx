@@ -6,7 +6,8 @@ import axios from "axios";
 import { pgnView, pgnBoard, pgnPrint } from "@mliebelt/pgn-viewer";
 import { parse } from "@mliebelt/pgn-parser";
 
-export default function ViewGames() {
+export default function ViewGames(props) {
+  console.log(props);
   const [pgn, setPGN] = useState("");
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState("*");
@@ -95,7 +96,7 @@ export default function ViewGames() {
   }, 5000);
 
   return (
-    <div className="viewgames">
+    <div className="viewgames" ref={props.scroll}>
       <div className="live">
         <h2>Live Game / Most Recent Game</h2>
 
