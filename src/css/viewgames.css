@@ -3,23 +3,23 @@
   padding-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #222935;
+  background-color: #adbbd2;
   font-family: "FiraCode-Regular";
   display:flex;
   flex-direction: row;
 }
 
 .live {
+    margin-left: 5%;
     flex: 0.5;
-    text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .statsandplay {
     flex: 0.5;
-    text-align: center;
 }
 
 .lichess {
-    color: white;
+    width: 100%;
+    color: black;
 }
