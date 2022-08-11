@@ -21,6 +21,9 @@ export default function ViewGames() {
   const [rapidRating, setRapidRating] = useState(0);
   const [classicalRating, setClassicalRating] = useState(0);
 
+  const [whiteELO, setWhiteELO] = useState(0);
+  const [blackELO, setBlackELO] = useState(0);
+
   const id = "board";
 
   const fetchCurrentPGN = () => {
@@ -36,6 +39,8 @@ export default function ViewGames() {
 
         setMove(game.moves.length);
         setResult(game.tags.Result);
+        setWhiteELO(game.tags.WhiteElo);
+        setBlackELO(game.tags.BlackElo);
 
         if (game.tags.WhiteTitle == "") {
           setWhite(game.tags.White);
@@ -78,7 +83,7 @@ export default function ViewGames() {
         showResult: true,
         layout: "top",
         colorMarker: true,
-        boardSize: "550",
+        boardSize: "650",
         orientation: flip,
       });
     }
@@ -100,7 +105,7 @@ export default function ViewGames() {
           ) : (
             <div>
               <p>
-                {white} (W) vs. {black} (B) {result}
+                {white} (W, {whiteELO}) vs. {black} (B, {blackELO}) {result}
               </p>
               <div id={id}></div>
               <p>
@@ -117,9 +122,15 @@ export default function ViewGames() {
         {loading ? (
           <p>Loading Statistics...</p>
         ) : (
-          <div>
+          <div className="stat">
             <div className="status">
-              <a className="currently lichess-link" href="https://lichess.org/@/Maelstrom-Chess"><strong>Maelstrom</strong></a>
+              <a
+                target="_blank"
+                className="currently lichess-link"
+                href="https://lichess.org/@/Maelstrom-Chess"
+              >
+                <strong>Maelstrom</strong>
+              </a>
               <p className="currently"> is currently </p>
               {online ? (
                 <p className="online">online</p>
@@ -127,24 +138,97 @@ export default function ViewGames() {
                 <p className="offline">offline</p>
               )}
               <p className="currently">
-                {online ? " on Lichess." : " on Lichess. Please check back later!"}
+                {online
+                  ? " on Lichess."
+                  : " on Lichess. Please check back later!"}
               </p>
             </div>
 
             <div className="statistics">
-              <p>Bullet Rating: {bulletRating}</p>
-              <p>Blitz Rating: {blitzRating}</p>
-              <p>Rapid Rating: {rapidRating}</p>
+              <p>
+                Bullet Rating: <strong>{bulletRating}</strong>
+              </p>
+              <p>
+                Blitz Rating: <strong>{blitzRating}</strong>
+              </p>
+              <p>
+                Rapid Rating: <strong>{rapidRating}</strong>
+              </p>
 
-              <p className="currently">View all previous games{' '}</p>
-              <a className="currently lichess-link" href="https://lichess.org/@/Maelstrom-Chess/all">here</a>
+              <p className="currently">View all previous games </p>
+              <a
+                target="_blank"
+                className="currently lichess-link"
+                href="https://lichess.org/@/Maelstrom-Chess/all"
+              >
+                here
+              </a>
               <p className="currently">.</p>
             </div>
           </div>
         )}
         <h2>How to Play</h2>
-        <div>
-          <p>When Maelstrom is online on Lichess and not playing a live game, you can challenge it on Lichess! You will need a Lichess account, which is quick and easy to create.</p>
+        <div className="howtoplay">
+          <p>
+            When Maelstrom is online on Lichess and not playing a live game, you
+            can challenge it on Lichess! You will need a Lichess account, which
+            is quick and easy to create.
+          </p>
+        </div>
+
+        <h2>How does this site track Maelstrom live?</h2>
+        <div className="site-info">
+          <p className="currently">The answer is simple: using the awesome </p>
+          <a
+            target="_blank"
+            className="currently lichess-link"
+            href="https://lichess.org/api#section/Introduction"
+          >
+            Lichess API
+          </a>
+          <p className="currently">
+            ! Every 5 seconds, this site requests the Lichess API to obtain
+            Maelstrom's current game as well as its rating statistics.
+          </p>
+          <br />
+          <br />
+          <p className="currently">Check out the source code of the website </p>
+          <a
+            target="_blank"
+            className="currently lichess-link"
+            href="https://github.com/saisree27/maelstrom-website"
+          >
+            here
+          </a>
+          <p className="currently">.</p>
+        </div>
+
+        <h2>What if I'd like to play Maelstrom without Lichess?</h2>
+        <div className="site-info">
+          <p className="currently">
+            No worries! You can download the latest version of Maelstrom from
+            the{" "}
+          </p>
+          <a
+            target="_blank"
+            className="currently lichess-link"
+            href="https://github.com/saisree27/Maelstrom/releases"
+          >
+            Releases Page
+          </a>
+          <p className="currently">
+            , and then use a UCI-compatible chess GUI with the Maelstrom
+            binary/executable. I recommend the GUI{" "}
+          </p>
+          <a
+            target="_blank"
+            className="currently lichess-link"
+            href="https://github.com/cutechess/cutechess"
+          >
+            Cute Chess
+          </a>
+          <p className="currently">, as it's very easy to install and use.</p>
+          <p>At some point, I do plan to allow visitors of the site to play the engine directly on the webserver here, but probably without the transposition table (to avoid memory issues).</p>
         </div>
       </div>
     </div>

@@ -5,44 +5,57 @@
   padding-right: 10px;
   background-color: #adbbd2;
   font-family: "FiraCode-Regular";
-  display:flex;
+  display: flex;
   flex-direction: row;
 }
 
 .live {
-    margin-left: 5%;
-    flex: 0.5;
-    color: rgb(0, 0, 0);
+  margin-left: 5%;
+  flex: 0.6;
+  color: rgb(0, 0, 0);
 }
 
 .statsandplay {
-    flex: 0.5;
+  flex: 0.4;
+  margin-right: 5%;
 }
 
 .lichess {
-    width: 100%;
-    color: black;
+  width: 100%;
+  color: black;
 }
 
 .status {
-    display: inline;
+  display: inline;
 }
 
 .currently {
-    display: inline;
+  display: inline;
 }
 
 .offline {
-    display: inline;
-    color: red;
+  display: inline;
+  color: red;
 }
 
 .online {
-    display: inline;
-    color: green;
+  display: inline;
+  color: green;
 }
 
 .lichess-link {
-    color: green;
-    text-decoration: underline;
+  color: green;
+  text-decoration: underline;
+}
+
+.stat {
+  padding-bottom: 50px;
+}
+
+.howtoplay {
+  padding-bottom: 50px;
+}
+
+.site-info {
+  padding-bottom: 50px;
 }
