@@ -1,6 +1,6 @@
 .viewgames {
-  height: 100vh;
   padding-top: 20px;
+  padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #adbbd2;
@@ -22,4 +22,27 @@
 .lichess {
     width: 100%;
     color: black;
+}
+
+.status {
+    display: inline;
+}
+
+.currently {
+    display: inline;
+}
+
+.offline {
+    display: inline;
+    color: red;
+}
+
+.online {
+    display: inline;
+    color: green;
+}
+
+.lichess-link {
+    color: green;
+    text-decoration: underline;
 }
